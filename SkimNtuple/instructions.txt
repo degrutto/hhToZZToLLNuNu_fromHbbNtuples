@@ -1,0 +1,13 @@
+ xrdfs t3se01.psi.ch ls -l -u /store/user/perrozzi/VHBBHeppyV23 
+ xrdfs stormgf1.pi.infn.it ls -l -u /store/user/cvernier/VHBBHeppyV23/ 
+
+python getListOfFiles.py >> files.txt
+python prepareSamples.py
+
+and edit samples.py
+
+than
+mkdir files
+voms-proxy-init -voms=cms
+cp /tmp/x509up_u24426 .
+python submit.py run_tree_skimmer
